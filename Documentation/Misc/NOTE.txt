@@ -1,0 +1,1 @@
+ Note: The tutorial file included in the Documentation / Misc file is an extra / bonus item and is not an instruction in any way for the plugin, this is primarily included only to share with folks looking for the alternative option of say manually edit addition of FA forum icons to their themes as I once often shared in the past via this now included extra / bonus tutorial.

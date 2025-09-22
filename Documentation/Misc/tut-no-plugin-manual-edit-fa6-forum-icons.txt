@@ -1,0 +1,468 @@
+[Tutorial] - Font-Awesome 6 Forum Icons - vintagedaddyo - 1-28-2022 
+
+This here is a continuation Tutorial of Vintagedaddyo's only the main part of the rather huge past font awesome combined tutorials postings specifically here now for this being only the base forum icons tutorial now for 1.8.29+ updating the past part of the FA5 tutorial to use Font Awesome 6* (*FA6 beta currently):
+
+
+Font-Awesome 6 Forum Icons on MyBB 1.8.29 + Software
+
+
+Today, we will be giving you a tutorial on how to replace forum icons with Font-Awesome 6 icons. The software of board being used in this tutorial is MyBB 1.8.29. Most of you have seen these type of additions on bulletin board's across the globe, and very much sure some of you would like to have one of these pages of your own. All others are also welcome to help other individuals on this thread who may be having issues, problems, and, errors after or before reading this tutorial.
+
+1. Loading Font Awesome 6
+
+
+In your Templates section of the MyBB ACP, find the Ungrouped Templates -> headerinclude template. 
+
+
+Add the following after:
+
+{$stylesheets}
+
+
+
+External linking:
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+
+
+
+Internal linking:
+
+
+<link rel="stylesheet" href="{$mybb->asset_url}/font-awesome-6/css/all.css">
+
+
+* You can download font-awesome-6 pkg stripped down for size to be used for theme includes here:
+
+https://filetransfer.io/data-package/5mSLMORO#link
+
+
+2. Adding Your Icon
+
+
+Still in Templates, find Forum Bit Templates -> forumbit_depth2_forum (Do the same for forumbit_depth2_cat) and replace:
+
+
+<span class="forum_status forum_{$lightbulb['folder']} ajax_mark_read" title="{$lightbulb['altonoff']}" id="mark_read_{$forum['fid']}"></span>
+
+
+
+With:
+
+
+
+<div class="forum_status forum_{$lightbulb['folder']} ajax_mark_read" title="{$lightbulb['altonoff']}" id="mark_read_{$forum['fid']}"><i class="fa-solid fa-comments"></i></div>
+
+
+
+Now find the following in your global.css:
+
+
+.forum_status {
+height: 30px;
+width: 30px;
+background: url(images/forum_icon_sprite.png) no-repeat 0 0;
+}
+.forum_on {
+background-position: 0 0;
+}
+.forum_off {
+background-position: 0 -30px;
+}
+.forum_offclose {
+background-position: 0 -60px;
+}
+.forum_offlink {
+background-position: 0 -90px;
+}
+
+
+Replace it with:
+
+
+/** Forums FA6 by: Vintagedaddyo **/
+
+.forum_status {
+height: 50px;
+width: 50px;
+font-size: 30px;
+text-align: center;
+}
+.forum_status i {
+display: inline-block;
+line-height: 50px;
+}
+.forum_on {
+color: #0094d1;
+}
+.forum_off, .forum_offclose, .forum_offlink {
+color: #333;
+opacity: 0.5;
+}
+.forum_off i {
+opacity: .4;
+}
+.forum_offclose i:before {
+content: "\f023";
+}
+.forum_offlink i:before {
+content: "\f0c1";
+}
+
+
+3. Fix Your Legend
+
+
+If you wish to keep your forum icon legend, find your Index Page Templates -> index template and replace the contents with this:
+
+
+
+<html>
+<head>
+<title>{$mybb->settings['bbname']}</title>
+{$headerinclude}
+<script type="text/javascript">
+<!-lang.no_new_posts = "{$lang->no_new_posts}";
+lang.click_mark_read = "{$lang->click_mark_read}";
+// -->
+</script>
+</head>
+<body>
+{$header}
+{$forums}
+{$boardstats}
+<dl class="forum_legend smalltext">
+<dt><div class="forum_status forum_on"><i class="fa-solid fa-comments"></i></div></dt>
+<dd>{$lang->new_posts}</dd>
+<dt><div class="forum_status forum_off"><i class="fa-solid fa-comments"></i></div></dt>
+<dd>{$lang->no_new_posts}</dd>
+<dt><div class="forum_status forum_offclose"><i class="fa-solid fa-comments"></i></div></dt>
+<dd>{$lang->forum_closed}</dd>
+<dt><div class="forum_status forum_offlink"><i class="fa-solid fa-comments"></i></div></dt>
+<dd>{$lang->forum_redirect}</dd>
+</dl>
+<br class="clear" />
+{$footer}
+</body>
+</html>
+
+
+
+In global.css find:
+
+
+
+.forum_legend,
+.forum_legend dt,
+.forum_legend dd {
+margin: 0;
+padding: 0;
+}
+.forum_legend dd {
+float: left;
+margin-right: 10px;
+margin-top: 7px;
+}
+.forum_legend dt {
+margin-right: 10px;
+float: left;
+}
+
+
+
+Replace with:
+
+
+/** Forum legend tweak for FA6 by: Vintagedaddyo **/
+
+.forum_legend, .forum_legend dt, .forum_legend dd {
+margin: 0;
+padding: 0;
+}
+.forum_legend dd {
+float: left;
+margin-right: 10px;
+margin-top: 17px;
+}
+.forum_legend dt {
+float: left;
+margin-right: 5px;
+}
+
+
+
+4. Adding Font-Awesome Subforum Icons
+
+
+Find this in Forum Bit Templates -> forumbit_depth3_statusicon:
+
+
+
+<div title="{$lightbulb['altonoff']}" class="subforumicon subforum_{$lightbulb['folder']} ajax_mark_read" id="mark_read_{$forum['fid']}"></div>
+
+
+Replace it with:
+
+
+<div title="{$lightbulb['altonoff']}" class="subforumicon subforum_{$lightbulb['folder']} ajax_mark_read" id="mark_read_{$forum['fid']}"><i class="fa-solid fa-comment"></i></div>
+
+
+
+Then in global.css find this:
+
+
+
+.subforumicon {
+height: 10px;
+width: 10px;
+display: inline-block;
+margin: 0 5px;
+background: url(images/mini_status_sprite.png) no-repeat 0 0;
+}
+.subforum_minion {
+background-position: 0 0;
+}
+.subforum_minioff {
+background-position: 0 -10px;
+}
+.subforum_minioffclose {
+background-position: 0 -20px;
+}
+.subforum_miniofflink {
+background-position: 0 -30px;
+}
+
+
+Replace it with:
+
+
+
+/** Subforums FA6 by: Vintagedaddyo **/
+
+.subforumicon {
+height: 10px;
+width: 10px;
+display: inline-block;
+margin: 0 5px;
+}
+.subforum_minion {
+color: #0094D1;
+}
+.subforum_minioff, .subforum_minioffclose, .subforum_miniofflink {
+color: #333;
+opacity: 0.5;
+}
+.subforum_minioff {
+opacity: .4;
+}
+.subforum_minioffclose i:before {
+content: "\f023";
+}
+.subforum_miniofflink i:before {
+content: "\f0c1";
+}
+
+
+5. Adding Font-Awesome Forum Icons
+
+
+Still in Templates, find Forum Bit Templates -> forumbit_depth2_forum (Do the same for forumbit_depth2_cat) and replace:
+
+
+<div class="forum_status forum_{$lightbulb['folder']} ajax_mark_read" title="{$lightbulb['altonoff']}" id="mark_read_{$forum['fid']}"><i class="fa-solid fa-comments"></i></div>
+
+
+
+With:
+
+
+<div class="forum_status forum_{$lightbulb['folder']} ajax_mark_read ficons_{$forum['fid']}" title="{$lightbulb['altonoff']}" id="mark_read_{$forum['fid']}"><i class="fa-solid fa-comments"></i></div>
+
+
+
+Find the following in global.css:
+
+
+
+/** Forums FA6 by: Vintagedaddyo **/
+
+.forum_status {
+height: 50px;
+width: 50px;
+font-size: 30px;
+text-align: center;
+}
+.forum_status i {
+display: inline-block;
+line-height: 50px;
+}
+.forum_on {
+color: #0094d1;
+}
+.forum_off, .forum_offclose, .forum_offlink {
+color: #333;
+}
+.forum_off i {
+opacity: .4;
+}
+.forum_offclose i:before {
+content: "\f023";
+}
+.forum_offlink i:before {
+content: "\f0c1";
+}
+
+
+After it, add this:
+
+
+
+/** Ficons FA6 by: Vintagedaddyo **/
+
+.ficons_2 i:before {
+content: "\f000";
+}
+.ficons_3 i:before {
+content: "\f1ba";
+}
+.ficons_4 i:before {
+content: "\f2e7";
+}
+.ficons_5 i:before {
+content: "\f3fd";
+}
+.ficons_6 i:before {
+content: "\f03e";
+}
+.ficons_7 i:before {
+content: "\f000";
+}
+.ficons_8 i:before {
+content: "\f1ba";
+}
+.ficons_9 i:before {
+content: "\f2e7";
+}
+.ficons_10 i:before {
+content: "\f3fd";
+}
+.ficons_11 i:before {
+content: "\f03e";
+}
+.ficons_12 i:before {
+content: "\f000";
+}
+.ficons_13 i:before {
+content: "\f1ba";
+}
+.ficons_14 i:before {
+content: "\f2e7";
+}
+.ficons_15 i:before {
+content: "\f3fd";
+}
+.ficons_16 i:before {
+content: "\f03e";
+}
+
+
+ficons_1,2,3 etc are your forums ID, if you don't know your forum ID just hover to one of the forums and underneath left hand corner of your screen you'll see something like forumdisplay.php?fid=9 or go inside your forum and on the search bar you will see fid ID.
+
+
+Now if you also want ficons for subforum icons
+
+
+Begin by replacing forumbit_depth3_statusicon with:
+
+
+
+<div title="{$lightbulb['altonoff']}" class="subforumicon subforum_{$lightbulb['folder']} ajax_mark_read sficons_{$forum['fid']}" id="mark_read_{$forum['fid']}"><i class="fa-solid fa-comment"></i></div>
+
+
+Find in global.css:
+
+
+
+/** Subforums FA6 by: Vintagedaddyo **/
+
+.subforumicon {
+height: 10px;
+width: 10px;
+display: inline-block;
+margin: 0 5px;
+}
+.subforum_minion {
+color: #0094D1;
+}
+.subforum_minioff, .subforum_minioffclose, .subforum_miniofflink {
+color: #333;
+opacity: 0.5;
+}
+.subforum_minioff {
+opacity: .4;
+}
+.subforum_minioffclose i:before {
+content: "\f023";
+}
+.subforum_miniofflink i:before {
+content: "\f0c1";
+}
+
+
+Add after:
+
+
+
+/** sFicons FA6 by: Vintagedaddyo **/
+
+.sficons_2 i:before {
+content: "\f000";
+}
+.sficons_3 i:before {
+content: "\f1ba";
+}
+.sficons_4 i:before {
+content: "\f2e7";
+}
+.sficons_5 i:before {
+content: "\f3fd";
+}
+.sficons_6 i:before {
+content: "\f03e";
+}
+.sficons_7 i:before {
+content: "\f000";
+}
+.sficons_8 i:before {
+content: "\f1ba";
+}
+.sficons_9 i:before {
+content: "\f2e7";
+}
+.sficons_10 i:before {
+content: "\f3fd";
+}
+.sficons_11 i:before {
+content: "\f03e";
+}
+.sficons_12 i:before {
+content: "\f000";
+}
+.sficons_13 i:before {
+content: "\f1ba";
+}
+.sficons_14 i:before {
+content: "\f2e7";
+}
+.sficons_15 i:before {
+content: "\f3fd";
+}
+.sficons_16 i:before {
+content: "\f03e";
+}
+
+
+
+All past and current tutorial credits go to: Eric J., Livewire, Vintagedaddyo
+
