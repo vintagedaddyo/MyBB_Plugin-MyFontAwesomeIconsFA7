@@ -1,14 +1,14 @@
-[Tutorial] - Font-Awesome 6 Forum Icons - vintagedaddyo - 1-28-2022 
+[Tutorial] - Font-Awesome 7 Forum Icons - vintagedaddyo - 1-28-2022 
 
-This here is a continuation Tutorial of Vintagedaddyo's only the main part of the rather huge past font awesome combined tutorials postings specifically here now for this being only the base forum icons tutorial now for 1.8.29+ updating the past part of the FA5 tutorial to use Font Awesome 6* (*FA6 beta currently):
-
-
-Font-Awesome 6 Forum Icons on MyBB 1.8.29 + Software
+This here is a continuation Tutorial of Vintagedaddyo's only the main part of the rather huge past font awesome combined tutorials postings specifically here now for this being only the base forum icons tutorial now for 1.8.39+ updating the past part of the FA5 / FA6 tutorial to use Font Awesome 7* (* fontawesome-free-7.0.1):
 
 
-Today, we will be giving you a tutorial on how to replace forum icons with Font-Awesome 6 icons. The software of board being used in this tutorial is MyBB 1.8.29. Most of you have seen these type of additions on bulletin board's across the globe, and very much sure some of you would like to have one of these pages of your own. All others are also welcome to help other individuals on this thread who may be having issues, problems, and, errors after or before reading this tutorial.
+Font-Awesome 7 Forum Icons on MyBB 1.8.39 + Software
 
-1. Loading Font Awesome 6
+
+Today, we will be giving you a tutorial on how to replace forum icons with Font-Awesome 7 icons. The software of board being used in this tutorial is MyBB 1.8.39. Most of you have seen these type of additions on bulletin board's across the globe, and very much sure some of you would like to have one of these pages of your own. All others are also welcome to help other individuals on this thread who may be having issues, problems, and, errors after or before reading this tutorial.
+
+1. Loading Font Awesome 7
 
 
 In your Templates section of the MyBB ACP, find the Ungrouped Templates -> headerinclude template. 
@@ -23,19 +23,34 @@ Add the following after:
 External linking:
 
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/all.css">
 
 
 
 Internal linking:
 
 
-<link rel="stylesheet" href="{$mybb->asset_url}/font-awesome-6/css/all.css">
+<link rel="stylesheet" href="{$mybb->asset_url}/font-awesome-7/css/all.css">
 
 
-* You can download font-awesome-6 pkg stripped down for size to be used for theme includes here:
+* You can download font-awesome-7 pkg stripped down for size to be used for theme includes here:
 
-https://filetransfer.io/data-package/5mSLMORO#link
+
+https://www.file-upload.net/en/download-15535564/font-awesome-7.zip.html
+
+
+
+Else, you can download the entire Font Awesome package:
+
+
+https://use.fontawesome.com/releases/v7.0.1/fontawesome-free-7.0.1-web.zip *
+
+
+
+* for example and then extract that poackage and copy the following directories out of such ie: "css & webfonts"
+
+and place those into a newly created directory called: font-awesome-7 Hopefully that makes sense. :) Best of Luck!
+
 
 
 2. Adding Your Icon
@@ -81,7 +96,7 @@ background-position: 0 -90px;
 Replace it with:
 
 
-/** Forums FA6 by: Vintagedaddyo **/
+/** Forums FA7 by: Vintagedaddyo **/
 
 .forum_status {
 height: 50px;
@@ -174,7 +189,7 @@ float: left;
 Replace with:
 
 
-/** Forum legend tweak for FA6 by: Vintagedaddyo **/
+/** Forum legend tweak for FA7 by: Vintagedaddyo **/
 
 .forum_legend, .forum_legend dt, .forum_legend dd {
 margin: 0;
@@ -238,7 +253,7 @@ Replace it with:
 
 
 
-/** Subforums FA6 by: Vintagedaddyo **/
+/** Subforums FA7 by: Vintagedaddyo **/
 
 .subforumicon {
 height: 10px;
@@ -285,7 +300,7 @@ Find the following in global.css:
 
 
 
-/** Forums FA6 by: Vintagedaddyo **/
+/** Forums FA7 by: Vintagedaddyo **/
 
 .forum_status {
 height: 50px;
@@ -318,7 +333,7 @@ After it, add this:
 
 
 
-/** Ficons FA6 by: Vintagedaddyo **/
+/** Ficons FA7 by: Vintagedaddyo **/
 
 .ficons_2 i:before {
 content: "\f000";
@@ -384,7 +399,7 @@ Find in global.css:
 
 
 
-/** Subforums FA6 by: Vintagedaddyo **/
+/** Subforums FA7 by: Vintagedaddyo **/
 
 .subforumicon {
 height: 10px;
@@ -414,7 +429,7 @@ Add after:
 
 
 
-/** sFicons FA6 by: Vintagedaddyo **/
+/** sFicons FA7 by: Vintagedaddyo **/
 
 .sficons_2 i:before {
 content: "\f000";
