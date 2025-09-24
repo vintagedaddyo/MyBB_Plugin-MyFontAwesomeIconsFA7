@@ -156,7 +156,7 @@ function myfontawesomeicons_deactivate()
 
     find_replace_templatesets("forumbit_depth3_statusicon", "#".preg_quote($old2)."#i", "$new2");
 
-    find_replace_templatesets("headerinclude", '#<link href=\"{\$mybb->asset_url}/inc/plugins/myfontawesomeicons/font-awesome-6/css/all.css\" rel=\"stylesheet\" type=\"text/css\">(\r?)\n#', "", 0);
+    find_replace_templatesets("headerinclude", '#<link href=\"{\$mybb->asset_url}/inc/plugins/myfontawesomeicons/font-awesome-7/css/all.css\" rel=\"stylesheet\" type=\"text/css\">(\r?)\n#', "", 0);
 
 	global $db;
 
