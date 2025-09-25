@@ -1,4 +1,4 @@
-[Tutorial] - Font-Awesome 7 Forum Icons - vintagedaddyo - 1-28-2022 
+[Tutorial] - Font-Awesome 7 Forum Icons - vintagedaddyo - 9-25-2025 
 
 This here is a continuation Tutorial of Vintagedaddyo's only the main part of the rather huge past font awesome combined tutorials postings specifically here now for this being only the base forum icons tutorial now for 1.8.39+ updating the past part of the FA5 / FA6 tutorial to use Font Awesome 7* (* fontawesome-free-7.0.1):
 
